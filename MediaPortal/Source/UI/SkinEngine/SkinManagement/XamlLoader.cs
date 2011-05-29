@@ -40,18 +40,24 @@ namespace MediaPortal.UI.SkinEngine.SkinManagement
   public class XamlLoader
   {
     /// <summary>
+    /// Loader property key whose value is set to <c>true</c> if the theme is currently loading, else it is <c>false</c>.
+    /// </summary>
+    public const string KEY_IS_THEME = "Theme";
+
+    /// <summary>
     /// Loads the specified skin file and returns the root UIElement.
     /// </summary>
     /// <param name="skinFilePath">The path to the XAML skin file.</param>
     /// <param name="loader">Loader callback for GUI models.</param>
+    /// <param name="isTheme">Set to <c>true</c> if the theme is loading. If the skin is loading, it is <c>false</c>.</param>
     /// <returns><see cref="UIElement"/> descendant corresponding to the root element in the
     /// specified skin file.</returns>
-    public static object Load(string skinFilePath, IModelLoader loader)
+    public static object Load(string skinFilePath, IModelLoader loader, bool isTheme)
     {
       try
       {
         using (TextReader reader = new StreamReader(skinFilePath))
-          return Load(reader, loader);
+          return Load(reader, loader, isTheme);
       }
       catch (XamlLoadException e)
       {
@@ -69,15 +75,17 @@ namespace MediaPortal.UI.SkinEngine.SkinManagement
     /// </summary>
     /// <param name="reader">The reader containing the XAML contents of the skin file.</param>
     /// <param name="loader">Loader callback for GUI models.</param>
+    /// <param name="isTheme">Set to <c>true</c> if the theme is loading. If the skin is loading, it is <c>false</c>.</param>
     /// <returns><see cref="UIElement"/> descendant corresponding to the root element in the
     /// specified skin file.</returns>
-    public static object Load(TextReader reader, IModelLoader loader)
+    public static object Load(TextReader reader, IModelLoader loader, bool isTheme)
     {
       try
       {
         Parser parser = new Parser(reader, parser_ImportNamespace, parser_GetEventHandler);
         parser.SetCustomTypeConverter(MPF.ConvertType);
         parser.SetContextVariable(typeof(IModelLoader), loader);
+        parser.SetContextVariable(KEY_IS_THEME, isTheme);
         return parser.Parse();
       }
       catch (Exception e)
