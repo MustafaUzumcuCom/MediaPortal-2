@@ -32,6 +32,9 @@
   <String Id="F_Server_Plugins">Plugins</String>
   <String Id="F_Server_Plugins_Desc">Plugins for the server.</String>
 
+  <String Id="F_Dokan">Dokan filesystem driver</String>
+  <String Id="F_Dokan_Desc">Used for filesystem virtualization. Necessary for archive and remote resource access.</String>
+
   <!-- Launch Conditions -->
   <String Id="LC_OS">[ProductName] requires minimum Windows 7 / 2008 R2 as operating system.</String>
   <String Id="LC_Dokan">[ProductName] requires Dokan v0.6.0.</String>

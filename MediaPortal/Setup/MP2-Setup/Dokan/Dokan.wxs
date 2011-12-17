@@ -95,8 +95,8 @@
              Level="1"
              AllowAdvertise="no"
              Display="expand"
-             Title="Dokan"
-             Description="This installs dokan lib and driver">
+             Title="!(loc.F_Dokan)"
+             Description="!(loc.F_Dokan_Desc)">
       <ComponentGroupRef Id="DokanLibrary" />
       <ComponentGroupRef Id="DokanDriver" />
     </Feature>

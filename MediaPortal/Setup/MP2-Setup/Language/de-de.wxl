@@ -32,6 +32,9 @@
   <String Id="F_Server_Plugins">Plugins</String>
   <String Id="F_Server_Plugins_Desc">Plugins für den Server.</String>
 
+  <String Id="F_Dokan">Dokan Dateisystem-Treiber</String>
+  <String Id="F_Dokan_Desc">Stellt die Dateisystem-Virtualisierung zur Verfügung. Notwendig für den Zugriff auf Archive und entfernte Medien-Dateien.</String>
+
   <!-- Launch Conditions -->
   <String Id="LC_OS">[ProductName] benötigt mindestens das Betriebssystem Windows 7 oder Windows 2008 R2.</String>
   <String Id="LC_Dokan">[ProductName] benötigt Dokan v0.6.0.</String>
