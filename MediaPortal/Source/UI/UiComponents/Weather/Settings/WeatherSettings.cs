@@ -100,5 +100,11 @@ namespace MediaPortal.UiComponents.Weather.Settings
     /// </summary>
     [Setting(SettingScope.User, null)]
     public List<CitySetupInfo> LocationsList { get; set; }
+
+    /// <summary>
+    /// Inititalizes weather data already on startup (can be used to provide weather data on homescreen).
+    /// </summary>
+    [Setting(SettingScope.User, false)]
+    public bool UseInHome { get; set; }
   }
 }

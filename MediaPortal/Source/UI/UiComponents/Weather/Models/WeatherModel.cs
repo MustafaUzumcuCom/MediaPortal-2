@@ -66,6 +66,7 @@ namespace MediaPortal.UiComponents.Weather.Models
     protected readonly ItemsList _locationsList = new ItemsList();
     protected readonly AbstractProperty _isUpdatingProperty = new WProperty(typeof(bool), false);
     protected readonly AbstractProperty _lastUpdateTimeProperty = new WProperty(typeof(string), null);
+    protected readonly AbstractProperty _useInHomeProperty = new WProperty(typeof(bool), false);
 
     protected String _preferredLocationCode = null;
     protected int? _refreshIntervalSec = null;
@@ -76,6 +77,23 @@ namespace MediaPortal.UiComponents.Weather.Models
 
     #region Public properties
 
+    /// <summary>
+    /// Exposes the UseInHome Property to the skin.
+    /// </summary>
+    public AbstractProperty UseInHomeProperty
+    {
+      get { return _useInHomeProperty; }
+    }
+
+    /// <summary>
+    /// Exposes the UseInHome Property to the skin.
+    /// </summary>
+    public bool UseInHome
+    {
+      get { return (bool) _useInHomeProperty.GetValue(); }
+      set { _useInHomeProperty.SetValue(value); }
+    }
+    
     /// <summary>
     /// Exposes the current location to the skin.
     /// </summary>
@@ -145,6 +163,19 @@ namespace MediaPortal.UiComponents.Weather.Models
     #endregion
 
     #region Public methods
+
+    public WeatherModel()
+    {
+      ISettingsManager settingsManager = ServiceRegistration.Get<ISettingsManager>();
+      WeatherSettings settings = settingsManager.Load<WeatherSettings>();
+      UseInHome = settings.UseInHome;
+
+      if (!UseInHome) 
+        return;
+      // Add citys from settings to the locations list
+      ReadSettings(true);
+      StartRefreshTask();
+    }
 
     public void Dispose()
     {
@@ -361,6 +392,8 @@ namespace MediaPortal.UiComponents.Weather.Models
 
     public void EnterModelContext(NavigationContext oldContext, NavigationContext newContext)
     {
+      if (UseInHome) 
+        return;
       // Add citys from settings to the locations list
       ReadSettings(true);
       StartRefreshTask();
@@ -368,6 +401,8 @@ namespace MediaPortal.UiComponents.Weather.Models
 
     public void ExitModelContext(NavigationContext oldContext, NavigationContext newContext)
     {
+      if (UseInHome)
+        return;
       EndRefreshTask();
     }
 

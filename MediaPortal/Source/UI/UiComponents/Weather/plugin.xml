@@ -54,5 +54,11 @@
         HelpText="[Settings.Plugins.Weather.LocationSetup.Help]"
         ClassName="MediaPortal.UiComponents.Weather.Settings.Configuration.WeatherConfigSetting"
         AdditionalData="WorkflowState=F1CE62B4-32CA-46e8-BCFB-250FE07911B2,ConfAppPanel=..."/>
+
+    <ConfigSetting
+        Id="UseInHome"
+        Text="[Settings.Plugins.Weather.UseInHome]"
+        HelpText="[Settings.Plugins.Weather.UseInHome.Help]"
+        ClassName="MediaPortal.UiComponents.Weather.Settings.Configuration.UseInHome"/>
   </Register>
 </Plugin>

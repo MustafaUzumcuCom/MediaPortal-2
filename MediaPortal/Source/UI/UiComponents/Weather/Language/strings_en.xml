@@ -76,6 +76,8 @@
   </Section>
   <Section Name="Settings">
     <String Name="Plugins.Weather" Text="Weather"/>
+    <String Name="Plugins.Weather.UseInHome" Text="Weather on homescreen"/>
+    <String Name="Plugins.Weather.UseInHome.Help" Text="If enabled skins can show the weather information in any places."/>
     <String Name="Plugins.Weather.LocationSetup" Text="Setup locations"/>
     <String Name="Plugins.Weather.LocationSetup.Help" Text="Configures cities to be available for the weather screen"/>
   </Section>

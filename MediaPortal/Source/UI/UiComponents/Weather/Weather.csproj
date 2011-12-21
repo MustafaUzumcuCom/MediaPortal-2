@@ -108,6 +108,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Settings\Configuration\UseInHome.cs" />
     <Compile Include="Settings\Configuration\WeatherConfigSetting.cs" />
     <Compile Include="Settings\WeatherSettings.cs" />
     <Compile Include="Models\WeatherSetupModel.cs" />
