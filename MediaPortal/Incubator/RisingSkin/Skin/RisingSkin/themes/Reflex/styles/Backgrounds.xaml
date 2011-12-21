@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="www.team-mediaportal.com/2008/mpf/directx"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System"
+    xmlns:collections="clr-namespace:MediaPortal.UI.Presentation.DataObjects;assembly=MediaPortal.UI"
+    xmlns:mp_special_controls="clr-namespace:MediaPortal.UI.SkinEngine.SpecialElements.Controls"
+    DependsOnStyleResources="Colors,Buttons,Consts,OtherControls"
+    >
+
+  <!-- BackgroundManager model -->
+  <Model x:Key="BackgroundManagerModel" Id="1F4CAEDE-7108-483d-B5C8-18BEC7EC58E5"/>
+
+  <ControlTemplate x:Key="DefaultBackgroundControlTemplate" TargetType="{x:Type Control}">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="400"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="180"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <!-- Background -->
+      <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="Reflex.jpg" Stretch="Uniform" />
+
+      <!-- Hovers -->
+      <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+        <Image x:Name="BackdropImageBackground" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top"
+           Width="400" Stretch="Uniform"
+           Source="{Binding Source={StaticResource BackgroundManagerModel}, Path=BackgroundImage}" Opacity="1.0"/>
+
+        <Image x:Name="BackdropImageBackgroundReflex" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top"
+           Width="400" Stretch="Uniform"
+           Source="{Binding Source={StaticResource BackgroundManagerModel}, Path=BackgroundImage}" Opacity="1.0">
+          <Image.LayoutTransform>
+            <TransformGroup>
+              <ScaleTransform ScaleX="1" ScaleY="-0.75"/>
+            </TransformGroup>
+          </Image.LayoutTransform>
+          <Image.OpacityMask>
+            <LinearGradientBrush StartPoint="0.5,0.0" EndPoint="0.5,1.0">
+              <GradientStop Offset="0.0" Color="#60000000" />
+              <GradientStop Offset="1.0" Color="#00000000" />
+            </LinearGradientBrush>
+          </Image.OpacityMask>
+        </Image>
+      </StackPanel>
+    </Grid>
+  </ControlTemplate>
+  
+</ResourceDictionary>

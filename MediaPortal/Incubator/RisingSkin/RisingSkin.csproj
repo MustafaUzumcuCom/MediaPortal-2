@@ -182,8 +182,10 @@
     <Content Include="Skin\RisingSkin\images\Weather\64x64\na.png" />
     <Content Include="Skin\RisingSkin\images\Weather\64x64\permission.txt" />
     <Content Include="Skin\RisingSkin\images\Weather\64x64\WEATHERALERT.png" />
-    <Content Include="Skin\RisingSkin\screens\MediaItemsList.inc" />
     <Content Include="Skin\RisingSkin\skin.xml" />
+    <Content Include="Skin\RisingSkin\themes\Reflex\images\preview.png" />
+    <Content Include="Skin\RisingSkin\themes\Reflex\images\Reflex.jpg" />
+    <Content Include="Skin\RisingSkin\themes\Reflex\theme.xml" />
     <Content Include="Skin\RisingSkin\themes\Silver\images\Filter.png" />
     <Content Include="Skin\RisingSkin\themes\Silver\images\Filter_l.png" />
     <Content Include="Skin\RisingSkin\themes\Silver\images\Movie_l.png" />
@@ -194,28 +196,25 @@
     <Content Include="Skin\RisingSkin\themes\Silver\images\Navigation.png" />
     <Content Include="Skin\RisingSkin\themes\Silver\images\Movie.png" />
     <Content Include="Skin\RisingSkin\themes\Silver\images\Picture_l.png" />
-    <Content Include="Skin\RisingSkin\themes\Silver\styles\Colors.xaml">
+    <None Include="Skin\RisingSkin\themes\Silver\styles\Colors.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Skin\RisingSkin\themes\Silver\styles\Consts.xaml">
+    <None Include="Skin\RisingSkin\themes\Silver\styles\Consts.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="plugin.xml" />
     <Content Include="Skin\RisingSkin\images\defaultBackground.png" />
     <Content Include="Skin\RisingSkin\themes\Silver\images\preview.png" />
-    <Content Include="Skin\RisingSkin\themes\Silver\styles\OtherControlsOverrides.xaml">
+    <None Include="Skin\RisingSkin\themes\Silver\styles\OtherControlsOverrides.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <Content Include="Skin\RisingSkin\themes\Silver\theme.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -236,10 +235,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Skin\RisingSkin\themes\Silver\styles\Buttons.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <None Include="Skin\RisingSkin\themes\Silver\styles\Buttons.xaml">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Skin\RisingSkin\fonts\eurof55.ttf" />
@@ -282,9 +280,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Skin\RisingSkin\themes\Silver\styles\Graphics.xaml">
+    <None Include="Skin\RisingSkin\themes\Silver\styles\Graphics.xaml">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Skin\RisingSkin\screens\master_bare.xaml">
@@ -292,9 +290,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Skin\RisingSkin\themes\Silver\styles\MediaStyles.xaml">
+    <None Include="Skin\RisingSkin\themes\Silver\styles\MediaStyles.xaml">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Skin\RisingSkin\backgrounds\default-background.xaml">
@@ -303,6 +301,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Skin\RisingSkin\superlayers\ScreenSaver.xaml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Skin\RisingSkin\themes\Silver\styles\Backgrounds.xaml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Skin\RisingSkin\themes\Reflex\styles\Backgrounds.xaml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
