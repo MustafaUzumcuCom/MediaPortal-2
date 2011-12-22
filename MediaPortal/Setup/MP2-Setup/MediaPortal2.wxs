@@ -18,7 +18,8 @@
              Description='MediaPortal 2 Installer'
              InstallerVersion='450'
              SummaryCodepage="!(loc.SummaryCodepage)"
-             Compressed='yes' />
+             Compressed='yes'
+             Platforms='x86,x64'/>
 
     <PropertyRef Id="UpgradesFile" />
 

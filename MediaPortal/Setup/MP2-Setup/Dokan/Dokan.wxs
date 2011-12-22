@@ -36,7 +36,7 @@
 
     <!-- DokanLibrary -->
     <DirectoryRef Id="SystemFolder">
-      <Component Id="dokan.dll32" Guid="5F26C90B-2163-4FA0-A264-CA815C528A74">
+      <Component Id="dokan.dll32" Guid="5F26C90B-2163-4FA0-A264-CA815C528A74" Win64="no">
         <File Id="dokan.dll32" KeyPath="yes" Source="$(var.ProjectDir)Dokan\binaries\win7\dll\dokan.dll" />
       </Component>      
       <!--
@@ -57,10 +57,10 @@
     <DirectoryRef Id="SystemFolder">
       <Directory Id="SystemFolder.Drivers" Name="drivers">
 
-        <Component Id="dokan.sys32" Guid="08E36576-73EF-4381-BC3F-91A3011148FE">
+        <Component Id="dokan.sys32" Guid="08E36576-73EF-4381-BC3F-91A3011148FE" Win64="no">
           <File Id="dokan.sys32" KeyPath="yes" Source="$(var.ProjectDir)Dokan\binaries\win7\sys\dokan.sys" />
           <Condition>
-            <![CDATA[Installed OR NOT VersionNT64]]>
+            <![CDATA[NOT Installed AND NOT VersionNT64]]>
           </Condition>
         </Component>
 
@@ -70,10 +70,10 @@
     <DirectoryRef Id="System64Folder">
       <Directory Id="System64Folder.Drivers" Name="drivers">
 
-        <Component Id="dokan.sys64" Guid="5483BC6B-B0DD-4688-BE28-94C406885448">
+        <Component Id="dokan.sys64" Guid="5483BC6B-B0DD-4688-BE28-94C406885448" Win64="yes">
           <File Id="dokan.sys64" KeyPath="yes" Source="$(var.ProjectDir)Dokan\binaries\x64\win7\sys\dokan.sys" />
           <Condition>
-            <![CDATA[Installed OR VersionNT64]]>
+            <![CDATA[NOT Installed AND VersionNT64]]>
           </Condition>
         </Component>
 
