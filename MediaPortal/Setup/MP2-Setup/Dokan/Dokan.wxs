@@ -39,18 +39,21 @@
       <Component Id="dokan.dll32" Guid="5F26C90B-2163-4FA0-A264-CA815C528A74" Win64="no">
         <File Id="dokan.dll32" KeyPath="yes" Source="$(var.ProjectDir)Dokan\binaries\win7\dll\dokan.dll" />
       </Component>      
-      <!--
-      <Component Id="dokanctl.exe32" Guid="3C012FC7-F54C-446B-8F5D-A499E429F375">
-        <File Id="dokanctl.exe32" KeyPath="yes" Source="$(var.ProjectDir)Dokan\binaries\win7\dokanctl\dokanctl.exe" />
+      
+      <Component Id="dokanctl.exe32" Guid="3C012FC7-F54C-446B-8F5D-A499E429F375" Win64="no">
+        <File Id="dokanctl.exe32" KeyPath="yes" Source="$(var.ProjectDir)Dokan\binaries\win7\dokanctrl\dokanctl.exe" />
       </Component>
-      -->
+
+      <Component Id="mounter.exe32" Guid="A44D8C51-AB97-4727-B7F7-EAC053FBE96C" Win64="no">
+        <File Id="mounter.exe32" KeyPath="yes" Source="$(var.ProjectDir)Dokan\binaries\win7\mounter\mounter.exe" />
+      </Component>
+
     </DirectoryRef>
 
     <ComponentGroup Id="DokanLibrary">
       <ComponentRef Id="dokan.dll32"/>
-      <!--
       <ComponentRef Id="dokanctl.exe32"/>
-      -->
+      <ComponentRef Id="mounter.exe32"/>
     </ComponentGroup>
 
     <!-- DokanDriver -->
@@ -85,12 +88,6 @@
       <ComponentRef Id="dokan.sys64"/>
     </ComponentGroup>
 
-
-
-
-
-
-
     <Feature Id="Dokan"
              Level="1"
              AllowAdvertise="no"
@@ -98,23 +95,24 @@
              Title="!(loc.F_Dokan)"
              Description="!(loc.F_Dokan_Desc)">
       <ComponentGroupRef Id="DokanLibrary" />
-      <ComponentGroupRef Id="DokanDriver" />
+      <ComponentGroupRef Id="DokanDriver" />      
     </Feature>
 
-
-
-    <Binary Id="dokanctl_exe" SourceFile="$(var.ProjectDir)Dokan\binaries\win7\dokanctrl\dokanctl.exe" />
+    <InstallExecuteSequence>
+      <Custom Action="CA_RegisterDokan" After="InstallFiles">NOT Installed AND NOT REMOVE</Custom>
+      <Custom Action="CA_UnregisterDokan" Before="RemoveFiles">Installed AND REMOVE</Custom>
+    </InstallExecuteSequence>
 
     <CustomAction Id="CA_RegisterDokan"
-                  BinaryKey="dokanctl_exe"
-                  Impersonate="yes"
+                  FileKey="dokanctl.exe32"
+                  Impersonate="no"
                   Execute="deferred"
                   ExeCommand="/i a"
                   Return="check" />
 
     <CustomAction Id="CA_UnregisterDokan"
-                  BinaryKey="dokanctl_exe"
-                  Impersonate="yes"
+                  FileKey="dokanctl.exe32"
+                  Impersonate="no"
                   Execute="deferred"
                   ExeCommand="/r a"
                   Return="check" />
