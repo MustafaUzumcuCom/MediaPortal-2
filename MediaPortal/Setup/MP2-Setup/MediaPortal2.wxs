@@ -186,7 +186,7 @@
       </Custom>
 
 
-      <Custom Action="AttachClientAndServer" After="InstallFinalize">NOT Installed</Custom>
+      <Custom Action="AttachClientToServer" After="InstallFinalize">NOT Installed</Custom>
 
       <RemoveExistingProducts After="InstallInitialize" />
       <InstallExecute After="RemoveExistingProducts" />
