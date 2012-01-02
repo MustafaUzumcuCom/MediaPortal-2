@@ -24,9 +24,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
+using MediaPortal.Backend.Services.ClientCommunication;
 using MediaPortal.Backend.Services.SystemResolver;
+using MediaPortal.Common.General;
 using MediaPortal.Common.Services.Logging;
 using Microsoft.Deployment.WindowsInstaller;
 
@@ -107,6 +110,8 @@ namespace CustomActions
           settingsManager.ClearCache();
 
           serverConnectionSettings.HomeServerSystemId = serverSystemId;
+          serverConnectionSettings.LastHomeServerSystem = SystemName.Loopback();
+          serverConnectionSettings.LastHomeServerName = new LocalizedUPnPDeviceInformation().GetFriendlyName(CultureInfo.InvariantCulture);
           settingsManager.Save(serverConnectionSettings);
         }
         else
